@@ -1,0 +1,12 @@
+name: Hello World
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1 #Checks out the repository in a detached head state for the ref supplied by the PR
+      - name: Says hi
+        run: |
+          echo "Hello world!"
