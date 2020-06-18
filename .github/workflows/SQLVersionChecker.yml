@@ -28,5 +28,5 @@ jobs:
         python-version: 3.x
 
     - name: Install dependencies
-      run: python actions/run.py
+      run: python run.py
 
