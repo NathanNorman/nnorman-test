@@ -3,7 +3,7 @@
 name: SQL Checker
 
 # Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
+# events but only for the master branchss
 on:
   pull_request:
     branches: [ master ]
@@ -13,8 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Check SQLChecker
     steps:
-      - name: Hi!
-        id: hello
+      - name: Run Name Test
         uses: matteo8p/SQLVersionChecker@v1
         with:
          name: 'Matthew'
