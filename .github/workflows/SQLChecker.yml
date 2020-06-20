@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: actions/nnorman-test@v1
+        uses: actions/nnorman-test@v2
         with:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
