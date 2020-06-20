@@ -20,4 +20,7 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: File Existence
         uses: andstor/file-existence-action@v1.0.1
+        with:
+          files: "package.json"
+
 
