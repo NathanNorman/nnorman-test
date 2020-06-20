@@ -17,10 +17,12 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: File Existence
-        uses: andstor/file-existence-action@v1.0.1
-        with:
-          files: "package.json"
+      - name: SQLVersionChecker
+        uses: matteo8p/SQLVersionChecker@v1
+
+
+
+
+
 
 
