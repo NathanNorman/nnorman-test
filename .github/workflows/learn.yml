@@ -19,4 +19,10 @@ jobs:
     steps:
       - name: Run SQL Version Checker from matteo8p
         uses: matteo8p/SQLVersionChecker@v1
+        id: hello
+        with:
+          who-to-greet: 'Mona the Octocat'
+          # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
 
