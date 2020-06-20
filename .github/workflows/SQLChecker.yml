@@ -1,12 +1,10 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: SQL Cehcker
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -31,6 +29,3 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
-
-    - name: SQLVersionChecker
-      uses: matteo8p/SQLVersionChecker@v1
