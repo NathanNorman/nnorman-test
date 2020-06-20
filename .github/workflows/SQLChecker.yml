@@ -16,6 +16,6 @@ jobs:
       - name: Run Name Test
         uses: matteo8p/SQLVersionChecker@v1
         with:
-         name: 'MadsMatt'
+         name: 'MadssMatt'
 
 
