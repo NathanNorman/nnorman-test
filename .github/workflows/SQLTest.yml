@@ -16,4 +16,4 @@ jobs:
       - name: Read GitHub Workspace
         uses: NathanNorman/nnorman-test@v1
         with:
-          sql_dir: './Common/src/main/sql/iris/migration/2020/2020'
+          sql_directory: './Common/src/main/sql/iris/migration/2020/2020'
