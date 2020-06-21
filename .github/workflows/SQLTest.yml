@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     name: RUN SQLCheck
     steps:
-      - name: Run GITHUB_WORKSPACE
+      - name: Read GitHub Workspace
         uses: NathanNorman/nnorman-test@v1
         with:
-          sql: ./Common/src/main/sql/iris/migration/2020/2020
+          sql_dir: ./Common/src/main/sql/iris/migration/2020/2020
