@@ -1,4 +1,4 @@
-name: 'Hello World'
+name: 'SQLTester'
 description: 'Greet someone and record the time'
 
 runs:
