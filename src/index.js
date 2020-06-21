@@ -4,6 +4,7 @@ const path = require('path');
 const fs = require('fs');
 
 const srcPath = core.getInput("src")
+core.info("Reading " + srcPath);
 
 fs.readdir(srcPath, function (err, files) {
   //handling error
