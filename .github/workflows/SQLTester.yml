@@ -1,0 +1,19 @@
+# This is a basic workflow to heslp you get startedf with Actionssdfs
+
+name: SQL Checker
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branchsss
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: Check SQLChecker
+    steps:
+      - name: Run GITHUB_WORKSPACE
+        uses: NathanNorman/nnorman-test@v1
+        with:
+          sql_directory: ./Common/src/main/sql/iris/migration/2020/2020
