@@ -14,7 +14,7 @@ jobs:
     name: Check SQLChecker
     steps:
       - name: Run GITHUB_WORKSPACE
-        uses: matteo8p/SQLVersionChecker@v1
+        uses: NathanNorman/nnorman-test@v1
         with:
           sql_directory: ./Common/src/main/sql/iris/migration/2020/2020
 
