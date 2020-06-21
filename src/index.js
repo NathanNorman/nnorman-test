@@ -3,7 +3,7 @@ const github = require('@actions/github');
 const path = require('path');
 const fs = require('fs');
 
-const srcPath = core.getInput("src")
+const srcPath = core.getInput("src_dir")
 core.info("Reading " + srcPath);
 
 fs.readdir(srcPath, function (err, files) {
