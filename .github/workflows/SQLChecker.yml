@@ -13,9 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Check SQLChecker
     steps:
-      - name: Run Name Test
+      - name: Run GITHUB_WORKSPACE
         uses: matteo8p/SQLVersionChecker@v1
-        with:
-         name: 'M'
 
 
