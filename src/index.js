@@ -15,7 +15,7 @@ fs.readdir(srcPath, function (err, files)
   //listing all files using forEach
   files.forEach(function (file)
   {
-    console.log(file);
+    core.info(file.valueOf());
   });
 });
 
