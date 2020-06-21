@@ -1,9 +1,9 @@
-# This is a basic workflow to help you get started with Actions
+# This is a basic workflow to heslp you get startedf with Actionssdfs
 
 name: SQL Checker
 
 # Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
+# events but only for the master branchsss
 on:
   pull_request:
     branches: [ master ]
@@ -11,14 +11,10 @@ on:
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Check SQLChecker
     steps:
-      - name: Hello world action step
-        id: hello
-        uses: matteo8p/SQLVersionChecker@v1
+      - name: Run GITHUB_WORKSPACE
+        uses: nnorman/SQLVersionChecker@v1
         with:
-          who-to-greet: 'Mona the Octocat'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+          sql_directory: ./Common/src/main/sql/iris/migration/2020/2020
 
