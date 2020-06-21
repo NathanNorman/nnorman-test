@@ -3,11 +3,7 @@ const github = require('@actions/github');
 const path = require('path');
 const fs = require('fs');
 
-const sql_directory = core.getInput('sql_directory');
-const GITHUB_WORKSPACE = process.env.GITHUB_WORKSPACE;
-
-const srcPath = "/home/runner/work/nnorman-test/Common/src/main/sql/iris/migration/2020/2020"
-core.info("Reading directory of " + srcPath);
+const srcPath = core.getInput("src")
 
 fs.readdir(srcPath, function (err, files) {
   //handling error
