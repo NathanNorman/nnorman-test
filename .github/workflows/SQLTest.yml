@@ -2,8 +2,6 @@
 
 name: SQL Checker
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branchssss
 on:
   pull_request:
     branches: [ master ]
@@ -21,10 +19,10 @@ jobs:
           ref: master
 
       - name: Display Source
-        id: mastersource
         run: |
             cd ./Common/src/main/sql/iris/migration/2020/2020
-            MASTERSOURCE=$(ls -1)
+            echo "::set-env name=MASTERSOURCE::$(ls -1)"
+
 
       - name: Checkout Current Branch
         uses: actions/checkout@v2
@@ -35,5 +33,4 @@ jobs:
           master_sql: $MASTERSOURCE
           sql_directory: './Common/src/main/sql/iris/migration/2020/2020'
 
-      - name: Disp
-        run: echo "$MASTERSOURCE"
+
