@@ -18,8 +18,8 @@ jobs:
         env:
             sqlDirectory: ./Common/src/main/sql/iris/migration/2020/2020
         run:  |
-            echo Initialize Test for %GITHUB_REPOSITORY
-            echo SQL File Directory - %sqlDirectory
+            echo Initialize Test for $GITHUB_REPOSITORY
+            echo SQL File Directory - $sqlDirectory
 
       - name: Checkout Master
         uses: actions/checkout@v2
