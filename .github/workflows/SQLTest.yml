@@ -15,9 +15,9 @@ jobs:
 
     steps:
       - name: Checkout Current PR
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
 
       - name: Read GitHub Workspace
         uses: NathanNorman/nnorman-test@v1
         with:
-          sql_directory: './'
+          sql_directory: './Common/src/main/sql/iris/migration/2020/2020'
