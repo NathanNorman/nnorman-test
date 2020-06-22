@@ -19,6 +19,11 @@ jobs:
         with:
           ref: master
 
+      - name: Display Source
+        run: |
+            cd /Common/src/main/sql/iris/migration/2020/2020
+            ls
+
       - name: Read GitHub Workspace
         uses: NathanNorman/nnorman-test@v1
         with:
