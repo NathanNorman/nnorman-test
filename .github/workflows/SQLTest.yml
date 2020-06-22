@@ -19,9 +19,10 @@ jobs:
           ref: master
 
       - name: Display Source
+        id: mastersource
         run: |
             cd ./Common/src/main/sql/iris/migration/2020/2020
-            echo "::set-env name=MASTERSOURCE::$(ls -1)"
+            echo ::set-output name=MASTERSOURCE::$(ls)
 
 
       - name: Checkout Current Branch
