@@ -11,7 +11,7 @@ const srcPath = path.join(GITHUB_WORKSPACE, sql_directory);
 core.info("Reading directory of " + srcPath);
 
 fs.readdir(srcPath, function (err, files) {
-  //handling error
+  //handling errorf
   if (err) {
     return console.log('Unable to scan directory: ' + err);
   }
