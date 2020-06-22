@@ -14,12 +14,6 @@ jobs:
     name: RUN SQLCheck
 
     steps:
-      - name: Initialize Environment
-        env:
-            sqlDirectory: './Common/src/main/sql/iris/migration/2020/2020'
-        run:  |
-            echo Initialize Test for $GITHUB_REPOSITORY
-            echo SQL File Directory - $sqlDirectory
 
       - name: Checkout Master
         uses: actions/checkout@v2
@@ -28,7 +22,7 @@ jobs:
 
       - name: Display Source
         run: |
-            cd $sqlDirectory
+            cd ./Common/src/main/sql/iris/migration/2020/2020
             ls
 
       - name: Checkout Current Branch
@@ -37,4 +31,4 @@ jobs:
       - name: Read GitHub Workspace
         uses: NathanNorman/nnorman-test@v1
         with:
-          sql_directory: $sqlDirectory
+          sql_directory: './Common/src/main/sql/iris/migration/2020/2020'
