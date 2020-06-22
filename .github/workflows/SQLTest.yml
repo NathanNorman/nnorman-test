@@ -21,7 +21,7 @@ jobs:
 
       - name: Display Source
         run: |
-            cd /Common/src/main/sql/iris/migration/2020/2020
+            cd ./Common/src/main/sql/iris/migration/2020/2020
             ls
 
       - name: Read GitHub Workspace
