@@ -14,12 +14,12 @@ jobs:
     name: RUN SQLCheck
 
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-
+      - name: Checkout Branch
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Read GitHub Workspace
         uses: NathanNorman/nnorman-test@v1
         with:
-          sql_directory: './'
+          sql_directory: './Common/src/main/sql/iris/migration/2020/2020'
