@@ -1,25 +1,23 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-const path = require('path');
 const fs = require('fs');
 
 const srcPath = core.getInput("sql_directory")
-core.info("Reading Path: " + srcPath);
-//
-// const payload = JSON.stringify(github.context.payload, undefined, 2);
-// core.info(payload);
+var sqlDirectories;
 
 fs.readdir(srcPath, function (err, files)
 {
-  //handling error
   if (err) {
     return console.log('Unable to scan directory: ' + err);
-  }
-  //listing all files using forEach
-  files.forEach(function (file)
+  }else
   {
-    core.info(file.valueOf());
-  });
+    sqlDirectories = files;
+  }
 });
+
+for(var i in sqlDirectories)
+{
+  core.info(i);
+}
 
 core.info('Finished Running');
