@@ -13,25 +13,26 @@ jobs:
 
     steps:
 
-      - name: Checkout Master
+      - name: Checkout Master Branch
         uses: actions/checkout@v2
+        id: mastersource
         with:
           ref: master
-
-      - name: Display Source
-        id: mastersource
         run: |
-            cd ./Common/src/main/sql/iris/migration/2020/2020
-            echo ::set-output name=MASTERSOURCE::$(ls)
-
+          cd ./Common/src/main/sql/iris/migration/2020/2020
+          echo ::set-output name=MASTERSOURCE::$(ls)
 
       - name: Checkout Current Branch
         uses: actions/checkout@v2
+        id: currentsource
+        run: |
+          cd ./Common/src/main/sql/iris/migration/2020/2020
+          echo ::set-output name=CURRENTSOURCE::$(ls)
 
       - name: Read GitHub Workspace
         uses: NathanNorman/nnorman-test@v1
         with:
           master_sql: ${{ steps.mastersource.outputs.MASTERSOURCE }}
-          sql_directory: './Common/src/main/sql/iris/migration/2020/2020'
+          current_sql: ${{ steps.mastersource.outputs.CURRENTSOURCE }}
 
 
