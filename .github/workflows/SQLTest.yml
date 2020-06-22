@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Check SQLChecker
     steps:
+      - uses: actions/checkout@v1
       - name: Run GITHUB_WORKSPACE
         uses: NathanNorman/nnorman-test@v1
         with:
