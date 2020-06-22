@@ -19,6 +19,9 @@ jobs:
         with:
           path: master
 
+      - name: Get Diff
+        runs: git diff --name-status master
+
       - name: Read GitHub Workspace
         uses: NathanNorman/nnorman-test@v1
         with:
