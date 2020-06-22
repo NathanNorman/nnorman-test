@@ -23,7 +23,7 @@ jobs:
       - name: Display Source
         run: |
             cd ./Common/src/main/sql/iris/migration/2020/2020
-            ls
+            echo "::workflow-command data={data}::{ls}"
 
       - name: Checkout Current Branch
         uses: actions/checkout@v2
@@ -31,4 +31,5 @@ jobs:
       - name: Read GitHub Workspace
         uses: NathanNorman/nnorman-test@v1
         with:
+          master_sql: $data
           sql_directory: './Common/src/main/sql/iris/migration/2020/2020'
