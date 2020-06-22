@@ -15,10 +15,7 @@ jobs:
 
     steps:
       - name: Checkout Branch
-        uses: actions/checkout@v1
-
-      - name: Get Diff
-        run: git diff --name-status master
+        uses: actions/checkout@master
 
       - name: Read GitHub Workspace
         uses: NathanNorman/nnorman-test@v1
