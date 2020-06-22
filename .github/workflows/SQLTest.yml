@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     name: RUN SQLCheck
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
+      - name: Checkout Current PR
+        uses: actions/checkout@v2
 
       - name: Read GitHub Workspace
         uses: NathanNorman/nnorman-test@v1
