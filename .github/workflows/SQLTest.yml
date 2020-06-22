@@ -14,8 +14,10 @@ jobs:
     name: RUN SQLCheck
 
     steps:
-      - name: Checkout Current PR
-        uses: actions/checkout@v1
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
 
       - name: Read GitHub Workspace
         uses: NathanNorman/nnorman-test@v1
