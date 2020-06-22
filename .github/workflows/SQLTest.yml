@@ -15,10 +15,9 @@ jobs:
 
     steps:
       - name: Checkout Branch
-        uses: actions/checkout@v1
-
-      - name: Get Diff
-        run: git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
+        uses: actions/checkout@v2
+        with:
+          ref: master
 
       - name: Read GitHub Workspace
         uses: NathanNorman/nnorman-test@v1
