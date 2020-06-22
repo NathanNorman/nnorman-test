@@ -6,7 +6,8 @@ const srcPath = core.getInput("sql_directory")
 
 fs.readdir(srcPath, function (err, files)
 {
-  console.log(files);
+  core.info("Displaying files: ");
+  core.info(files);
 });
 
 core.info('Finished Running');
