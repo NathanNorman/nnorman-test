@@ -20,7 +20,7 @@ jobs:
           path: master
 
       - name: Get Diff
-        runs: git diff --name-status master
+        run: git diff --name-status master
 
       - name: Read GitHub Workspace
         uses: NathanNorman/nnorman-test@v1
