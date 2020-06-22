@@ -13,25 +13,21 @@ jobs:
     runs-on: ubuntu-latest
     name: RUN SQLCheck
 
-
-
     steps:
       - name: Checkout Master
         uses: actions/checkout@v2
         with:
           path: master
-
-      - name: Store Master
-        id: master
-        run: |
-        cd ./Common/src/main/sql/iris/migration/2020/2020
-        ls
-
-      - name: Checkout Current PR
-        uses: actions/checkout@v2
+#      - name: Store Master
+#        id: master
+#        run: |
+#        cd ./Common/src/main/sql/iris/migration/2020/2020
+#        ls
+#
+#      - name: Checkout Current PR
+#        uses: actions/checkout@v2
 
       - name: Read GitHub Workspace
         uses: NathanNorman/nnorman-test@v1
         with:
           sql_directory: './Common/src/main/sql/iris/migration/2020/2020'
-          diffs:
