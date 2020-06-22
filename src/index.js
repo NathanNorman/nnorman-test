@@ -8,12 +8,10 @@ var sqlDirectories;
 fs.readdir(srcPath, function (err, files)
 {
   console.log(files);
-  sqlDirectories = files;
+  for(var i = 0; i < fiels.length; i++)
+  {
+    console.log(files[i]);
+  }
 });
-
-for(var i = 0; i < sqlDirectories.length; i++)
-{
-  console.log(sqlDirectories[i]);
-}
 
 core.info('Finished Running');
