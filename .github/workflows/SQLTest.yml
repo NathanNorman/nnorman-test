@@ -21,9 +21,10 @@ jobs:
           ref: master
 
       - name: Display Source
+        id: mastersource
         run: |
             cd ./Common/src/main/sql/iris/migration/2020/2020
-            echo "::workflow-command data={data}::{ls}"
+            ls
 
       - name: Checkout Current Branch
         uses: actions/checkout@v2
@@ -31,5 +32,8 @@ jobs:
       - name: Read GitHub Workspace
         uses: NathanNorman/nnorman-test@v1
         with:
-          master_sql: $data
+          master_sql: ${{ steps.mastersource.outputs }}
           sql_directory: './Common/src/main/sql/iris/migration/2020/2020'
+
+      - name: Disp
+        run: echo ${{ steps.mastersource.outputs }}
