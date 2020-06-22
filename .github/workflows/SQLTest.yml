@@ -15,9 +15,7 @@ jobs:
 
     steps:
       - name: Checkout Branch
-        uses: actions/checkout@v2
-        with:
-          path: master
+        uses: actions/checkout@v1
 
       - name: Get Diff
         run: git diff --name-status master
