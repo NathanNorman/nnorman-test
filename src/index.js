@@ -8,7 +8,7 @@ var sqlDirectories;
 fs.readdir(srcPath, function (err, files)
 {
   console.log(files);
-  for(var i = 0; i < fiels.length; i++)
+  for(var i = 0; i < files.length; i++)
   {
     console.log(files[i]);
   }
