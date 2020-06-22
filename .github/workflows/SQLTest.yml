@@ -31,7 +31,7 @@ jobs:
       - name: Read GitHub Workspace
         uses: NathanNorman/nnorman-test@v1
         with:
-          master_sql: $MASTERSOURCE
+          master_sql: ${{ steps.mastersource.outputs.MASTERSOURCE }}
           sql_directory: './Common/src/main/sql/iris/migration/2020/2020'
 
 
