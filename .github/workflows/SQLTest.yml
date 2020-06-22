@@ -37,6 +37,6 @@ jobs:
         uses: NathanNorman/nnorman-test@v1
         with:
           master_sql: ${{ steps.mastersource.outputs.MASTERSOURCE }}
-          current_sql: ${{ steps.mastersource.outputs.CURRENTSOURCE }}
+          current_sql: ${{ steps.currentsource.outputs.CURRENTSOURCE }}
 
 
