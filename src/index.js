@@ -10,7 +10,7 @@ var master_list = MASTERSQL.split(' ');
 var current_list = CURRENTSQL.split(' ');
 //  END INITIATE VARIABLES
 
-init();     //call initialize method
+
 
 //  INITIALIZE METHOD
 function init()
@@ -36,8 +36,6 @@ function newSQLFiles()
   return newSQL;
 }
 
-
-
 //  TERMINATION METHODS
 function TERMINATE_FAIL(message)
 {
@@ -49,3 +47,5 @@ function TERMINATE_SUCCESS(message)
   core.info("SUCCESS: " + message);
 }
 //  END TERMINATION METHODS
+
+init();     //call initialize method
