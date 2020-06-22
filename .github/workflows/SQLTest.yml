@@ -21,15 +21,15 @@ jobs:
             echo Initialize Test for $GITHUB_REPOSITORY
             echo SQL File Directory - $sqlDirectory
 
-      - name: Checkout Master
-        uses: actions/checkout@v2
-        with:
-          ref: master
+#      - name: Checkout Master
+#        uses: actions/checkout@v2
+#        with:
+#          ref: master
 
-      - name: Display Source
-        run: |
-            cd $sqlDirectory
-            ls
+#      - name: Display Source
+#        run: |
+#            cd $sqlDirectory
+#            ls
 
       - name: Checkout Current Branch
         uses: actions/checkout@v2
