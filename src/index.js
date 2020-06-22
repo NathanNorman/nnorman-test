@@ -7,17 +7,13 @@ var sqlDirectories;
 
 fs.readdir(srcPath, function (err, files)
 {
-  if (err) {
-    return console.log('Unable to scan directory: ' + err);
-  }else
-  {
-    sqlDirectories = files;
-  }
+  console.log(files);
+  sqlDirectories = files;
 });
 
-for(var i in sqlDirectories)
+for(var i = 0; i < sqlDirectories.length; i++)
 {
-  core.info(i);
+  console.log(sqlDirectories[i]);
 }
 
 core.info('Finished Running');
