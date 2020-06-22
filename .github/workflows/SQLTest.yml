@@ -24,8 +24,8 @@ jobs:
       - name: Store Master
         id: master
         run: |
-        echo "cd ./Common/src/main/sql/iris/migration/2020/2020"
-        echo "ls"
+        cd ./Common/src/main/sql/iris/migration/2020/2020
+        ls
 
       - name: Checkout Current PR
         uses: actions/checkout@v2
