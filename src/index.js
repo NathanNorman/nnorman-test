@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const path = require('path');
 const fs = require('fs');
-//sfds
+//sfdss
 const sql_directory = core.getInput('sql_directory');
 const GITHUB_WORKSPACE = process.env.GITHUB_WORKSPACE;
 
