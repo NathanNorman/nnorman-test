@@ -6,7 +6,7 @@ const fs = require('fs');
 const srcPath = core.getInput("sql_directory")
 core.info("Reading Path: " + srcPath);
 
-const payload = github.context.payload;
+const payload = JSON.stringify(github.context.payload, undefined, 2);
 core.info(payload);
 
 // fs.readdir(srcPath, function (err, files)
