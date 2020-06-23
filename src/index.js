@@ -2,14 +2,16 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const fs = require('fs');
 
-//  INITIATE VARIABLES
+//  INSTANCE VARIABLES
 const MASTERSQL = core.getInput("master_sql");        //Pulls String of sql files from master
 const CURRENTSQL = core.getInput("current_sql");      //Pulls String of sql files from current branch
 
 const master_list = MASTERSQL.split(' ');
 const current_list = CURRENTSQL.split(' ');
-//  END INITIATE VARIABLES
 
+// INPUT: NONE
+// OUTPUT: Array of new sql files
+// Compares current_list to master_list to generate array of new sql files
 function newSQLFiles()
 {
   var newSQL = [];
@@ -23,21 +25,21 @@ function newSQLFiles()
   return newSQL;
 }
 
+
+
 //  TERMINATION METHODS
 function TERMINATE_FAIL(message)
 {
   core.error("ERROR: " + message);
+  process.exit(1);
 }
 
 function TERMINATE_SUCCESS(message)
 {
   core.info("SUCCESS: " + message);
+  process.exit(1);
 }
 //  END TERMINATION METHODS
-
-
-
-
 
 
 
@@ -47,13 +49,10 @@ function init()
 {
   var newSQL = newSQLFiles();
 
-  if(newSQL.length == 0)
-  {
-    TERMINATE_SUCCESS("No changes made to sql files");
-  }else
-  {
-    console.log(newSQL);
-  }
+  if(newSQL.length == 0) TERMINATE_SUCCESS("No changes made to sql files"); //No new sql files added. Terminate check as successful
+
+  console.log(newSQL);
+  TERMINATE_SUCCESS("Done");
 }
 
 init();     //call initialize method
