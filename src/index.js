@@ -36,13 +36,13 @@ function fileFormatTest(newSQL)
 {
   NEW_SECTION("Initiate Regex File Format Test");
 
-  const regex = RegExp("v" + YEAR + ".[0-1][1-9].[0-3][0-9]_\\d{2}__.*");
+  const regex = RegExp("v" + YEAR + ".[0-1][0-9].[0-3][0-9]_\\d{2}__.*");
   for(var i = 0; i < newSQL.length; i++)
   {
     core.info("Checking " + newSQL[i]);
     if(!regex.test(newSQL[i]))
     {
-      TERMINATE_FAIL(newSQL[i] + " fails to match format. Format must be in format vYYYY.MM.DD_xx__Description. Make sure the configurations in your .yml project file is correct too.");
+      TERMINATE_FAIL(newSQL[i] + " fails to match format. Format must be in format vYYYY.MM.DD_xx__Description. Make sure the configurations in your .yml project file are correct too.");
     }
   }
   core.info("Regex File Format Test Successful!");
