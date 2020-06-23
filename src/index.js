@@ -20,7 +20,7 @@ function newSQLFiles()
   {
     if(!master_list.includes(file))
     {
-      newSQL.push(current_list[i]);
+      newSQL.push(file);
     }
   }
   core.info("New files detected: " + newSQL.toString());
