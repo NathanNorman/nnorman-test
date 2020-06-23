@@ -6,22 +6,9 @@ const fs = require('fs');
 const MASTERSQL = core.getInput("master_sql");        //Pulls String of sql files from master
 const CURRENTSQL = core.getInput("current_sql");      //Pulls String of sql files from current branch
 
-var master_list = MASTERSQL.split(' ');
-var current_list = CURRENTSQL.split(' ');
+const master_list = MASTERSQL.split(' ');
+const current_list = CURRENTSQL.split(' ');
 //  END INITIATE VARIABLES
-
-
-
-//  INITIALIZE METHOD
-function init()
-{
-  var newSQLFiles = newSQLFiles();
-
-  if(newSQLFiles.length == 0)
-  {
-    TERMINATE_SUCCESS("No changes made to sql files");
-  }
-}
 
 function newSQLFiles()
 {
@@ -47,5 +34,26 @@ function TERMINATE_SUCCESS(message)
   core.info("SUCCESS: " + message);
 }
 //  END TERMINATION METHODS
+
+
+
+
+
+
+
+
+//  INITIALIZE METHOD
+function init()
+{
+  var newSQL = newSQLFiles();
+
+  if(newSQL.length == 0)
+  {
+    TERMINATE_SUCCESS("No changes made to sql files");
+  }else
+  {
+    console.log(newSQL);
+  }
+}
 
 init();     //call initialize method
