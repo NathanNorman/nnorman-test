@@ -6,8 +6,8 @@ const fs = require('fs');
 const MASTERSQL = core.getInput("master_sql");        //Pulls String of sql files from master
 const CURRENTSQL = core.getInput("current_sql");      //Pulls String of sql files from current branch
 
-const master_list = MASTERSQL.split(' ');
-const current_list = CURRENTSQL.split(' ');
+const master_list = MASTERSQL.split(' ');          //Divide MASTERSQL into Array
+const current_list = CURRENTSQL.split(' ');        //Divide CURRENTSQL into Array
 
 
 // INPUT: NONE
