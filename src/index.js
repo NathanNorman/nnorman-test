@@ -13,7 +13,7 @@ const current_list = CURRENTSQL.split(' ');        //Divide CURRENTSQL into Arra
 
 // INPUT: NONE
 // OUTPUT: Array of new sql files
-// Compares current_list to master_list to generate array of new sql files
+// Compares current_list to master_list to generate array of new sql filess
 function newSQLFiles()
 {
   var newSQL = [];
