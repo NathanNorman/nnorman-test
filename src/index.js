@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const moment = require("moment");
 
-//  INSTANCE VARIABLESs
+//  INSTANCE VARIABLESss
 const MASTERSQL = core.getInput("master_sql");        //Pulls String of sql files from master
 const CURRENTSQL = core.getInput("current_sql");      //Pulls String of sql files from current branch
 const YEAR = core.getInput("year");
