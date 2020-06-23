@@ -23,7 +23,7 @@ function newSQLFiles()
       newSQL.push(current_list[i]);
     }
   }
-  core.info("New files detected: " + newSQL.toString());
+  core.info("New sql files detected: " + newSQL.toString());
   return newSQL;
 }
 
@@ -32,7 +32,8 @@ function newSQLFiles()
 //File format test. Check if every file in newSQL matches the regex format.
 function fileFormatTest(newSQL)
 {
-  core.info("Initiate Regex File Format Test");
+  NEW_SECTION("Initiate Regex File Format Test");
+
   const regex = RegExp("v" + "2020" + ".[0-1][1-9].[0-3][0-9]_\\d{2}__.*");
   for(var i = 0; i < newSQL.length; i++)
   {
@@ -44,7 +45,7 @@ function fileFormatTest(newSQL)
 }
 
 
-//  TERMINATION METHODS
+//  LOGICMETHODS
 function TERMINATE_FAIL(message)
 {
   core.setFailed("FAILED: " + message);
@@ -55,11 +56,18 @@ function TERMINATE_SUCCESS(message)
   core.info("SUCCESS: " + message);
 }
 
+function NEW_SECTION(message)
+{
+  core.info("-----------------------------------");
+  core.info(message);
+  core.info("-----------------------------------");
+}
+
 //  INITIATION METHODS
 function runTests(newSQL)                               //Runs tests in sequence
 {
   fileFormatTest(newSQL);
-  TERMINATE_SUCCESS(" All tests have passed");
+  TERMINATE_SUCCESS(" All tests have passed");          //When all tests have passed.
 }
 
 function init()
