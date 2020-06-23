@@ -2,7 +2,7 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const moment = require("moment");
 
-//  INSTANCE VARIABLES
+//  INSTANCE VARIABLESss
 const MASTERSQL = core.getInput("master_sql");        //Pulls String of sql files from master
 const CURRENTSQL = core.getInput("current_sql");      //Pulls String of sql files from current branch
 const YEAR = core.getInput("year");
@@ -13,7 +13,7 @@ const current_list = CURRENTSQL.split(' ');        //Divide CURRENTSQL into Arra
 
 // INPUT: NONE
 // OUTPUT: Array of new sql files
-// Compares current_list to master_list to generate array of new sql files
+// Compares current_list to master_list to generate array of new sql filess
 function newSQLFiles()
 {
   var newSQL = [];
@@ -82,7 +82,7 @@ function NEW_SECTION(message)
   core.info(message);
 }
 
-//  INITIATION METHODS
+//  INITIATION METHODSs
 function runTests(newSQL)                               //Runs tests in sequence
 {
   fileFormatTest(newSQL);                               //Run file format test
