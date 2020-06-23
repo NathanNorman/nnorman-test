@@ -40,7 +40,7 @@ function fileFormatTest(newSQL)
     core.info("Checking " + newSQL[i]);
     if(!regex.test(newSQL[i]))
     {
-      TERMINATE_FAIL(newSQL[i] + " fails to match format. Format must be in format vYYYY.MM.DD.xx__Description. Make sure the configurations in your .yml project file is correct too.");
+      TERMINATE_FAIL(newSQL[i] + " fails to match format. Format must be in format vYYYY.MM.DD_xx__Description. Make sure the configurations in your .yml project file is correct too.");
     }
   }
   core.info("Regex File Format Test Successful!");
@@ -62,7 +62,7 @@ function validDateTest(newSQL)
   for(var i = 0; i < newSQL.length; i++)
   {
     core.info("Validating date for " + newSQL[i]);
-    const split = newSQL[i].split(".");
+    const split = newSQL[i].substring(0, 11).split(".");
     const month = split[1];
     const day = split[2];
 
@@ -81,7 +81,7 @@ function TERMINATE_FAIL(message)
 
 function TERMINATE_SUCCESS(message)
 {
-  core.info("TESTS SUCCESS: " + message);
+  core.info("SUCCESS: " + message);
   process.exit(0);
 }
 
