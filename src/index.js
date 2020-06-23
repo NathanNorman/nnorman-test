@@ -16,25 +16,29 @@ const current_list = CURRENTSQL.split(' ');        //Divide CURRENTSQL into Arra
 function newSQLFiles()
 {
   var newSQL = [];
-  for(var file in current_list)
+  for(var i = 0; i < current_list.length; i++)
   {
-    if(!master_list.includes(file))
+    if(!master_list.includes(current_list[i]))
     {
-      newSQL.push(file);
+      newSQL.push(current_list[i]);
     }
   }
   core.info("New files detected: " + newSQL.toString());
   return newSQL;
 }
 
-function checkFileFormat(newSQL)
+//INPUT: Array of new Files
+//OUTPUT: NA
+//File format test. Check if every file in newSQL matches the regex format.
+function fileFormatTest(newSQL)
 {
   core.info("Initiate Regex File Format Test");
-  const regex = RegExp("v" + year + ".[0-1][1-9].[0-3][0-9]_\\d{2}__.*");
-  for(file in newSQL)
+  const regex = RegExp("v" + "2020" + ".[0-1][1-9].[0-3][0-9]_\\d{2}__.*");
+  for(var i = 0; i < newSQL.length; i++)
   {
-    core.info("Checking " + file);
-    if(!regex.test(file)) TERMINATE_FAIL(file + " fails to match format. Format must be in format vYYYY.MM.DD.xx__Description");
+    core.info("Checking " + newSQL[i]);
+    if(!regex.test(newSQL[i]))                        //Fail fileFormatTest
+      TERMINATE_FAIL(newSQL[i] + " fails to match format. Format must be in format vYYYY.MM.DD.xx__Description");
   }
   core.info("Regex File Format Test Successful!");
 }
@@ -54,7 +58,7 @@ function TERMINATE_SUCCESS(message)
 //  INITIATION METHODS
 function runTests(newSQL)                               //Runs tests in sequence
 {
-  checkFileFormat(newSQL);
+  fileFormatTest(newSQL);
   TERMINATE_SUCCESS(" All tests have passed");
 }
 
