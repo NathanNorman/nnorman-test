@@ -1,6 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-const moment = require("moment");                     //Date check module
+const moment = require('moment');                     //Date check module
+const colors = requre('colors');
 
 //  INSTANCE VARIABLES
 const MASTERSQL = core.getInput("master_sql");
@@ -9,7 +10,6 @@ const YEAR = core.getInput("year");
 
 var master_list = MASTERSQL.split(' ');
 var current_list = CURRENTSQL.split(' ');
-
 
 
 //INPUT: none
@@ -26,6 +26,7 @@ function newSQLFiles()
     }
   }
   core.info(newSQL.length + " new sql files detected: " + newSQL.toString());
+  core.info("Scan Success!".green);
   return newSQL;
 }
 
@@ -45,7 +46,7 @@ function fileFormatTest(newSQL)
       TERMINATE_FAIL(newSQL[i] + " fails to match format. Format must be in format vYYYY.MM.DD_xx__Description. Make sure the configurations in your .yml project file are correct too.");
     }
   }
-  core.info("Regex File Format Test Successful!");
+  core.info("Regex File Format Test Successful!".green);
 }
 
 //INPUT: Array of new SQL files
@@ -64,7 +65,7 @@ function validDateTest(newSQL)
     if(!moment(month + "/" + day + "/" + YEAR, "MM/DD/YYYY", true).isValid())
       TERMINATE_FAIL(newSQL[i] + " has error. " + month + "/" + day + "/" + YEAR + " is not a valid date");
   }
-  core.info("Date validation test is successful");
+  core.info("Date validation test is successful!".green);
 }
 
 //INPUT: Array of new SQL files
@@ -84,7 +85,7 @@ function versionTest(newSQL)
       master_list.push(newSQL[i]);
     }
   }
-  core.info("Version checking is complete");
+  core.info("Version checking is complete!".green);
 }
 
 //  PROGRAM LOGIC FLOW METHODS
@@ -96,14 +97,14 @@ function TERMINATE_FAIL(message)
 
 function TERMINATE_SUCCESS(message)
 {
-  core.info("SUCCESS: " + message);
+  core.info("SUCCESS: ".green + message);
   process.exit(0);
 }
 
 function NEW_SECTION(message)
 {
-  core.info("******************************************")
-  core.info(message);
+  core.info("******************************************".bgCyan)
+  core.info(message.bgCyan);
 }
 
 //  INITIATION METHODS
