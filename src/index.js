@@ -41,7 +41,7 @@ function fileFormatTest(newSQL)
     core.info("Checking " + newSQL[i]);
     if(!regex.test(newSQL[i]))
     {
-      TERMINATE_FAIL(newSQL[i] + " fails to match format. Format must be in format vYYYY.MM.DD.xx__Description");
+      TERMINATE_FAIL(newSQL[i] + " fails to match format. Format must be in format vYYYY.MM.DD.xx__Description. Make sure the configurations in your .yml project file is correct too.");
     }
   }
   core.info("Regex File Format Test Successful!");
