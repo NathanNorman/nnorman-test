@@ -1,6 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-const fs = require('fs');
+const moment = require("moment");
 
 //  INSTANCE VARIABLES
 const MASTERSQL = core.getInput("master_sql");        //Pulls String of sql files from master
@@ -47,6 +47,21 @@ function fileFormatTest(newSQL)
   core.info("Regex File Format Test Successful!");
 }
 
+//INPUT: Date format in MM/DD/YYYY
+//OUTPUT: True/False if day is on a blackout day
+function isBlackoutDay(date)
+{
+
+}
+
+//INPUT: Array of SQL files
+//OUTPUT: None
+//Checks if every file has a valid date.
+function validDateTest(newSQL)
+{
+
+}
+
 
 //  PROGRAM FLOW METHODS
 function TERMINATE_FAIL(message)
@@ -63,11 +78,9 @@ function TERMINATE_SUCCESS(message)
 
 function NEW_SECTION(message)
 {
-  core.info("-----------------------------------");
+  core.info("******************************************")
   core.info(message);
-  core.info("-----------------------------------");
 }
-
 
 //  INITIATION METHODS
 function runTests(newSQL)                               //Runs tests in sequence
@@ -76,11 +89,11 @@ function runTests(newSQL)                               //Runs tests in sequence
   TERMINATE_SUCCESS("Have a good rest of your day!");   //When all tests have passed.
 }
 
-function init()
+function init()                                         //Initiate test
 {
+  NEW_SECTION("Scanning for new sql files");
   var newSQL = newSQLFiles();                           //Array of new sql files
 
-  NEW_SECTION("Scanning for new sql files");
   if(newSQL.length == 0)
     TERMINATE_SUCCESS("No changes made to sql files");  //No new sql files added. Terminate check as successful
 
