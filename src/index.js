@@ -82,7 +82,7 @@ function NEW_SECTION(message)
   core.info(message);
 }
 
-//  INITIATION METHODS
+//  INITIATION METHODSs
 function runTests(newSQL)                               //Runs tests in sequence
 {
   fileFormatTest(newSQL);                               //Run file format test
