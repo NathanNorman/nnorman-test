@@ -1,6 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
-const moment = require("moment");
+const moment = require("moment");                           //Install Moment.js for date check
 
 //  INSTANCE VARIABLES
 const MASTERSQL = core.getInput("master_sql");        //Pulls String of sql files from master
@@ -9,7 +9,6 @@ const YEAR = core.getInput("year");
 
 const master_list = MASTERSQL.split(' ');          //Divide MASTERSQL into Array
 const current_list = CURRENTSQL.split(' ');        //Divide CURRENTSQL into Array
-
 
 // INPUT: NONE
 // OUTPUT: Array of new sql files
@@ -51,7 +50,7 @@ function fileFormatTest(newSQL)
 //OUTPUT: True/False if day is on a blackout day
 function isBlackoutDay(date)
 {
-
+  TERMINATE_FAIL(date + " is on a blackout date");
 }
 
 //INPUT: Array of SQL files
@@ -59,9 +58,19 @@ function isBlackoutDay(date)
 //Checks if every file has a valid date.
 function validDateTest(newSQL)
 {
+  NEW_SECTION("Initiate Date Validation Test");
+  for(var i = 0; i < newSQL.length; i++)
+  {
+    core.info("Validating date for " + newSQL[i]);
+    const split = newSQL[i].split(".");
+    const month = split[1];
+    const day = split[2];
 
+    if(!moment(month + "/" + day + "/" + YEAR, "MM/DD/YYYY", true).isValid())
+      TERMINATE_FAIL("Date does not exist for " + newSQL[i]);
+  }
+  core.info("Date validation test is successful");
 }
-
 
 //  PROGRAM FLOW METHODS
 function TERMINATE_FAIL(message)
@@ -86,6 +95,8 @@ function NEW_SECTION(message)
 function runTests(newSQL)                               //Runs tests in sequence
 {
   fileFormatTest(newSQL);                               //Run file format test
+  validDateTest(newSQL);
+
   TERMINATE_SUCCESS("Have a good rest of your day!");   //When all tests have passed.
 }
 
