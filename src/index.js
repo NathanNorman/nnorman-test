@@ -63,8 +63,11 @@ function init()
   var newSQL = newSQLFiles();                           //Array of new sql files
 
   if(newSQL.length == 0)
+  {
     TERMINATE_SUCCESS("No changes made to sql files");  //No new sql files added. Terminate check as successful
-  else
+  } else
+  {
     runTests(newSQL);                                   //If there are sql files added, run the other tests
+  }
 }
 init();                                                 //call initialize method
