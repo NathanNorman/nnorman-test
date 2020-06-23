@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const moment = require('moment');                     //Date check module
-const colors = requre('colors');
+const colors = require('colors');
 
 //  INSTANCE VARIABLES
 const MASTERSQL = core.getInput("master_sql");
