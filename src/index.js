@@ -1,7 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const moment = require('moment');                     //Date check module
-const colors = require('colors');
 
 //  INSTANCE VARIABLES
 const MASTERSQL = core.getInput("master_sql");
@@ -26,7 +25,7 @@ function newSQLFiles()
     }
   }
   core.info(newSQL.length + " new sql files detected: " + newSQL.toString());
-  core.info("Scan Success!".green);
+  core.info("Scan Success!");
   return newSQL;
 }
 
@@ -46,7 +45,7 @@ function fileFormatTest(newSQL)
       TERMINATE_FAIL(newSQL[i] + " fails to match format. Format must be in format vYYYY.MM.DD_xx__Description. Make sure the configurations in your .yml project file are correct too.");
     }
   }
-  core.info("Regex File Format Test Successful!".green);
+  core.info("Regex File Format Test Successful!");
 }
 
 //INPUT: Array of new SQL files
@@ -65,7 +64,7 @@ function validDateTest(newSQL)
     if(!moment(month + "/" + day + "/" + YEAR, "MM/DD/YYYY", true).isValid())
       TERMINATE_FAIL(newSQL[i] + " has error. " + month + "/" + day + "/" + YEAR + " is not a valid date");
   }
-  core.info("Date validation test is successful!".green);
+  core.info("Date validation test is successful!");
 }
 
 //INPUT: Array of new SQL files
@@ -97,14 +96,14 @@ function TERMINATE_FAIL(message)
 
 function TERMINATE_SUCCESS(message)
 {
-  core.info("SUCCESS: ".green + message);
+  core.info("SUCCESS: " + message);
   process.exit(0);
 }
 
 function NEW_SECTION(message)
 {
-  core.info("******************************************".bgCyan)
-  core.info(message.bgCyan);
+  core.info("******************************************")
+  core.info(message);
 }
 
 //  INITIATION METHODS
