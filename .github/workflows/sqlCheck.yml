@@ -1,5 +1,4 @@
 name: SQL Checker
-
 on:
   pull_request:
     branches:
