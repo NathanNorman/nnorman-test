@@ -1,5 +1,3 @@
-# Run Test Againss
-
 name: SQL Checker
 
 on:
@@ -37,7 +35,7 @@ jobs:
           cd ./Common/src/main/sql/iris/migration/2020/2020
           echo ::set-output name=CURRENTSOURCE::$(ls)
 
-      - name: Read GitHub Workspace
+      - name: -- THE ACTUAL TEST --
         uses: matteo8p/SQLVersionChecker@v1
         with:
           master_sql: ${{ steps.mastersource.outputs.MASTERSOURCE }}
